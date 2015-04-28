@@ -1,0 +1,10 @@
+0011 000 000 000000; Starts at x3000
+0101 011 011 1 00000;clears R3
+0101 100 100 1 00000;clears R4
+0001 100 100 1 01000; loads R4 with 8, number of times to ADD
+0001 011 011 1 00001; loads R3 with 1
+0001 011 011 0 00 011; adds R3 to itself
+0001 100 100 1 11111; decrements R4
+0000 001 111111101;continues adding R3 until counter reaches 0
+0001 011 011 1 11111;subtracts 1 from R3 to give x00ff
+0101 010 011 0 00 001; AND of R1 with R3(x00FF), Stored in R2

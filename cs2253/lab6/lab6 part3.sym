@@ -1,0 +1,12 @@
+//Symbol Name		Page Address
+//----------------	------------
+//	a                       3028
+//	done                    3011
+//	intercept_message       3029
+//	message1                3015
+//	message2                301E
+//	myloop                  300C
+//	mytrap                  3007
+//	save_r0                 3047
+//	save_r5                 3048
+//	save_r7                 3049

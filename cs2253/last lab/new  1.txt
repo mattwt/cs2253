@@ -1,0 +1,91 @@
+run
+Starting program: C:\cygwin64\home\mtait/myprog.exe
+[New Thread 748.0x1b48]
+fact(5) is 120
+[Inferior 1 (process 748) exited with code 020]
+(gdb) break fact if n==2
+Breakpoint 1 at 0x4013f2: file myprog.c, line 12.
+(gdb) run
+Starting program: C:\cygwin64\home\mtait/myprog.exe
+[New Thread 6592.0x1530]
+
+Breakpoint 1, fact (n=2) at myprog.c:12
+12        if (n==0) return 1;
+(gdb) where
+#0  fact (n=2) at myprog.c:12
+#1  0x0040140d in fact (n=3) at myprog.c:14
+#2  0x0040140d in fact (n=4) at myprog.c:14
+#3  0x0040140d in fact (n=5) at myprog.c:14
+#4  0x004013da in main () at myprog.c:7
+(gdb) where full
+#0  fact (n=2) at myprog.c:12
+        temp = 716305065
+#1  0x0040140d in fact (n=3) at myprog.c:14
+        temp = 2686632
+#2  0x0040140d in fact (n=4) at myprog.c:14
+        temp = 1968836962
+#3  0x0040140d in fact (n=5) at myprog.c:14
+        temp = 1968836962
+#4  0x004013da in main () at myprog.c:7
+No locals.
+(gdb) print
+(gdb) The history is empty.
+print n
+$1 = 2
+(gdb) print temp
+$2 = 716305065
+(gdb) x/20xw &n
+0x28fe80:       0x00000002      0xffffffff      0x00000024      0x0028fe98
+0x28fe90:       0x00000004      0x00000000      0x8771c1ba      0x0028fea8
+0x28fea0:       0x7559f600      0x00000000      0x0028fed8      0x0040140d <=here
+0x28feb0:       0x00000003      0x7559a442      0x756302a8      0x0028fefc
+0x28fec0:       0x7559f4d2      0x00000008      0x755a118e      0x755a1162
+(gdb)
+
+disassemble fact
+Dump of assembler code for function fact:
+   0x004013ec <+0>:     push   %ebp
+   0x004013ed <+1>:     mov    %esp,%ebp
+   0x004013ef <+3>:     sub    $0x28,%esp
+=> 0x004013f2 <+6>:     cmpl   $0x0,0x8(%ebp)
+   0x004013f6 <+10>:    jne    0x4013ff <fact+19>
+   0x004013f8 <+12>:    mov    $0x1,%eax
+   0x004013fd <+17>:    jmp    0x401417 <fact+43>
+   0x004013ff <+19>:    mov    0x8(%ebp),%eax
+   0x00401402 <+22>:    sub    $0x1,%eax
+   0x00401405 <+25>:    mov    %eax,(%esp)
+   0x00401408 <+28>:    call   0x4013ec <fact>
+   0x0040140d <+33>:    imul   0x8(%ebp),%eax
+   0x00401411 <+37>:    mov    %eax,-0xc(%ebp)
+   0x00401414 <+40>:    mov    -0xc(%ebp),%eax
+   0x00401417 <+43>:    leave
+   0x00401418 <+44>:    ret
+End of assembler dump
+
+
+
+
+(gdb) x/30xw &i
+0x28ff04:       0x0028ff14      0x0028ff28      0x0040142c      0x00403075
+0x28ff14:       0x00405068      0x0000001e      0x00000002      0x0028ff28
+0x28ff24:       0x755a9e34      0x0028ff94      0x004010fd      0x00000001
+0x28ff34:       0x006e1778      0x006e1c78      0xffffffff      0x0028ff5c
+0x28ff44:       0x755b8cd5      0xb96294dd      0xfffffffe      0x755a161e
+0x28ff54:       0x755a15a0      0x006e1c78      0x00000000      0x755a2811
+0x28ff64:       0x00000001      0x7efde000      0x00401295      0x00000001
+0x28ff74:       0x00000000      0x00000000
+(gdb) cont
+Continuing.
+
+Breakpoint 2, hack () at foo.c:11
+11      }
+(gdb) x/30xw &i
+0x28ff04:       0x00000014      0x00000003      0x00000004      0x00000005
+0x28ff14:       0x00000006      0x00000007      0x00000008      0x00000009
+0x28ff24:       0x0000000a      0x0000000b      0x0000000c      0x0000000d
+0x28ff34:       0x0000000e      0x0000000f      0x00000010      0x00000011
+0x28ff44:       0x00000012      0x00000013      0xfffffffe      0x755a161e
+0x28ff54:       0x755a15a0      0x006e1c78      0x00000000      0x755a2811
+0x28ff64:       0x00000001      0x7efde000      0x00401295      0x00000001
+0x28ff74:       0x00000000      0x00000000
+(gdb)

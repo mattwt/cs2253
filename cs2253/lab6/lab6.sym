@@ -1,0 +1,8 @@
+//Symbol Name		Page Address
+//----------------	------------
+//	A                       300A
+//	B                       300B
+//	START                   3004
+//	loop                    3001
+//	message1                300C
+//	stop                    3009

@@ -1,0 +1,22 @@
+jmp	L2
+L3:
+	movl	20(%esp), %eax
+	addl	%eax, 28(%esp)
+	incl	24(%esp)
+L2:			/*loop starts here*/
+	cmpl	$9, 24(%esp) /*b*/
+	jle	L3
+	
+part 2	
+	movl	28(%esp), %edx  //esp = 10, edx = 10
+	movl	%edx, %eax	//edx = 10, eax = 10
+	addl	%eax, %eax	//eax = 20
+	addl	%edx, %eax	//eax = 30
+	addl	%eax, %eax	//eax = 60
+	addl	%edx, %eax	//eax = 70
+	movl	%eax, 24(%esp)	//esp =70
+	
+part 3 - no loop
+calculation for j is stripped out during compile.
+after printf in source code, compiler thinks the loop is not necessary, so strips out
+the loop and the calculation for j. If j were a global variable, the loop would remain.

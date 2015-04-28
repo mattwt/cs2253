@@ -1,0 +1,5 @@
+0011 000 000 000000 ;Starts at x3000
+1001 001 110 111111 ;NOT of R6, stored in R1
+1001 010 111 111111 ;NOT of R7, stored in R2
+0101 011 001 0 00 010 ; AND R1 and R2, stored in R3
+1001 101 011 111111 ;NOT of R3, stored in R5

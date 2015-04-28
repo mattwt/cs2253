@@ -1,0 +1,14 @@
+//Symbol Name		Page Address
+//----------------	------------
+//	LP                      3006
+//	PLUS                    3013
+//	a                       3030
+//	b                       3031
+//	c                       3032
+//	d                       3033
+//	interrupt               300B
+//	ouch                    302A
+//	reg0                    3034
+//	reg7                    3035
+//	stack                   3015
+//	top                     3029

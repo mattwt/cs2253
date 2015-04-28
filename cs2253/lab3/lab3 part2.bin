@@ -1,0 +1,12 @@
+0011 000 000000000
+1110 001 111111111 ; R1 = x3000
+0101 011 011 1 00000 ; R3 =0
+0101 010 010 1 00000 ; R2 =0
+0001 010 010 1 01010 ; R2 =10
+0000 010 000000101 ;checks if R2 = 0, if it is, break from the flow.
+0110 100 001 000000 ; loads the contents at x3000 into R4
+0001 011 011 0 00 100 ; Adds R4 to R3
+0001 001 001 1 00001 ; increments R1
+0001 010 010 1 11111 ; decrements R2
+0000 111 111111010 ; loops back to x3004.
+1001 110 001 111111 ; NOTs R1, stores the value in R6.

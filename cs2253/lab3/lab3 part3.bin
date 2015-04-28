@@ -1,0 +1,9 @@
+0011 000 000 000000 ;Starts at x3000
+1110 001 000000010   ; set R1 to x3003
+0101 000 000 1 00000 ; R0 = 0
+0011 001 000000001   ; Store R1 to M[x3004]
+0011 001 000000001   ; Store R1 to M[x3005]
+0011 001 000000001   ; Store R1 to M[x3006]
+; The program does not work properly because it changes the values further down the execution
+; line, changing what gets executed at those memory blocks. Specifically, the line that stores R1
+;to M[x3004] executes at x3003, changing what happens in x3004, changing what the program does.

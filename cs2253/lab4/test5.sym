@@ -1,0 +1,6 @@
+//Symbol Name		Page Address
+//----------------	------------
+//	input                   300B
+//	loop                    3001
+//	pointer                 3000
+//	stop                    3008
